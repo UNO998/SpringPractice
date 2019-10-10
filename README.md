@@ -14,3 +14,5 @@ The content of couses is:
 - Hibernate
 
 **I have noted for courses on Xmind, which is useful**
+
+[note link](https://github.com/UNO998/MyNote)
