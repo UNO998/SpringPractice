@@ -13,6 +13,6 @@ The content of couses is:
 - JPA
 - Hibernate
 
-**I have noted for courses on Xmind, which is useful**
+ ## I have noted for courses on Xmind, which is useful
 
 [note link](https://github.com/UNO998/MyNote)
