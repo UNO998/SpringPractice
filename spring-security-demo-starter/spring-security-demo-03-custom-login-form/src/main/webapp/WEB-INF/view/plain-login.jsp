@@ -6,8 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Login</title>
+	<meta charset="UTF-8">
+	<title>Login</title>
+
+	<style>
+		.failed {
+			color: red;
+		}
+	</style>
+
 </head>
 <body>
 
@@ -16,7 +23,7 @@
 			
 	<!-- error message when error parameter is not null -->
 	<c:if test="${param.error != null}">
-		<i>Sorry! You entered invalid username/password.</i>
+		<i class="failed">Sorry! You entered invalid username/password.</i>
 	</c:if>		
 			
 	<!-- login form -->
