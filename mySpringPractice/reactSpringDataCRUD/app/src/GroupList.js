@@ -51,7 +51,7 @@ class GroupList extends Component {
                 <td style={{ whiteSpace: 'nowrap' }}>{group.name}</td>
                 <td>{address}</td>
                 <td>{group.events.map(event => {
-                    return <div>{new Intl.DateTimeFormat('en-US', {
+                    return <div key={event.id}>{new Intl.DateTimeFormat('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: '2-digit'
@@ -66,29 +66,30 @@ class GroupList extends Component {
                 </td>
             </tr>
         });
+
         return (
             <div>
-                <AppNavbar>
-                    <Container fluid>
-                        <div className="float-right">
-                            <Button color="success" tag={Link} to="/groups/new">Add Group</Button>
-                        </div>
-                        <h3>My JUG Tour</h3>
-                        <Table className="mt-4">
-                            <thead>
-                                <tr>
-                                    <th width="20%">Name</th>
-                                    <th width="20%">Location</th>
-                                    <th >Events</th>
-                                    <th width="20%">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {groupList}
-                            </tbody>
-                        </Table>
-                    </Container>
-                </AppNavbar>
+                <AppNavbar />
+                <Container fluid>
+                    <div className="float-right">
+                        <Button color="success" tag={Link} to="/groups/new">Add Group</Button>
+                    </div>
+                    <h3>My JUG Tour</h3>
+                    <Table className="mt-4">
+                        <thead>
+                            <tr>
+                                <th width="20%">Name</th>
+                                <th width="20%">Location</th>
+                                <th >Events</th>
+                                <th width="20%">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {groupList}
+                        </tbody>
+                    </Table>
+                </Container>
+
             </div>
         )
     };
