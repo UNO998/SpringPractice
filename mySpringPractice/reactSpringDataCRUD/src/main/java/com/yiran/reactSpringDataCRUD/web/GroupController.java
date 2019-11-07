@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +49,13 @@ public class GroupController {
 	@PostMapping("/group")
 	public ResponseEntity<Group> createGroup(@Valid @RequestBody Group group) throws URISyntaxException {
 		log.info("Request to update group: {}", group);
+		Group result = groupRepository.save(group);
+		return ResponseEntity.ok().body(result);
+	}
+	
+	@PutMapping("/group")
+	public ResponseEntity<Group> updateGroup(@Valid @RequestBody Group group) {
+		log.info("Request to update groups: {}", group);
 		Group result = groupRepository.save(group);
 		return ResponseEntity.ok().body(result);
 	}
