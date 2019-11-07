@@ -43,6 +43,17 @@ class GroupEdit extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    const {item} = this.state;
+
+    await fetch('/api/group', {
+      method: (item.id) ? 'PUT' : 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item),
+    });
+    this.props.history.push('/groups');
   }
 
   render() {
