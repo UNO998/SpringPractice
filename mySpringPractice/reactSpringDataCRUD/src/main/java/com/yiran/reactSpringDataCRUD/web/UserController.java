@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 	private ClientRegistration registration;
+	private final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	public UserController(ClientRegistrationRepository registrations) {
 		this.registration = registrations.findByRegistrationId("okta");
@@ -40,8 +43,10 @@ public class UserController {
 		String logoutUrl = this.registration.getProviderDetails()
 				.getConfigurationMetadata().get("end_session_endpoint").toString();
 		
+		log.info(logoutUrl);
+		
 		Map<String, String> logoutDetails = new HashMap<>();
-		logoutDetails.put("l,ogoutUrl", logoutUrl);
+		logoutDetails.put("logoutUrl", logoutUrl);
 		logoutDetails.put("idToken", idToken.getTokenValue());
 		request.getSession(false).invalidate();
 		return ResponseEntity.ok().body(logoutDetails);
