@@ -10,7 +10,7 @@
 	<name>spring-security-demo-06-user-roles</name>
 
 	<properties>
-		<springframework.version>5.0.2.RELEASE</springframework.version>
+		<springframework.version>5.1.0.RELEASE</springframework.version>
 		<springsercurity.version>5.0.0.RELEASE</springsercurity.version>
 
 
